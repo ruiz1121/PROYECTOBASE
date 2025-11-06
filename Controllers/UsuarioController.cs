@@ -23,10 +23,11 @@ namespace proyecto_sena.Controllers
 
         [HttpPost]
         [Route("register")]
-        public IActionResult Register(usuarioModel usuario) {
+    
+        public async Task<ActionResult> Register(usuarioModel usuario) {
             if (usuario != null)
             {
-                usuarioservice.Crearusuario(usuario);
+                await usuarioservice.Crearusuario(usuario);
                 return Ok("usuario creado");
             }
             else
