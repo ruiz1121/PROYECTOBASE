@@ -10,8 +10,8 @@ using proyecto_sena.services;
 
 namespace proyecto_sena.Controllers
 {
-    [ApiController]
-    [Route("/user")]
+
+    [Route("user")]
     public class Usuariocontroller : Controller
     {
 
@@ -23,8 +23,9 @@ namespace proyecto_sena.Controllers
 
         [HttpPost]
         [Route("register")]
-    
-        public async Task<ActionResult> Register(usuarioModel usuario) {
+
+        public async Task<ActionResult> Register(usuarioModel usuario)
+        {
             if (usuario != null)
             {
                 await usuarioservice.Crearusuario(usuario);
@@ -34,8 +35,15 @@ namespace proyecto_sena.Controllers
             {
                 return BadRequest("usuario no puede ser null");
             }
-         }
+        }
+        [HttpGet]
+        [Route("register")]
+    public IActionResult Register()
+        {
+            return View();
+        }
     }
+    
 }
 
 /**/

@@ -10,9 +10,9 @@ namespace proyecto_sena.Models
     public class usuarioModel
     {
         public int usuario_Id { get; set; }
-        public string usuario_Nombre { get; set; }
-        public string usuario_Apellido { get; set; }
-        public string usuario_correo { get; set; }
-        public string usuario_Contraseña { get; set; }
+        public  required string usuario_Nombre { get; set; }
+        public required string usuario_Apellido { get; set; }
+        public required string usuario_correo { get; set; }
+        public required string usuario_Contraseña { get; set; }
     }
 }
