@@ -1,20 +1,32 @@
 @model proyecto_sena.Models.usuarioModel
 
-<h1>Registrarse</h1>
-
-@using (Html.BeginForm(actionName:"Register",controllerName:"Usuario",FormMethod.Post))
-{
-<label>Nombre</label>
-@Html.TextBoxFor(modelo => modelo.usuario_Nombre)
-<br />
-<label>Apellido</label>
-@Html.TextBoxFor(modelo => modelo.usuario_Apellido)
-<br />
-<label>Email</label>
-@Html.TextBoxFor(modelo => modelo.usuario_correo)
-<br />
-<label>Password</label>
-@Html.PasswordFor(modelo => modelo.usuario_Contraseña)
-<br />
-<input type="submit" value="Guardar" />
-}
+<div class="container text-center w-75">
+    <h1>Registrarse</h1>
+    <form asp-action="Register" asp-controller="Usuario" method="post">
+        <div class="form-group">
+            <label for="usuario_Nombre">Nombre</label>
+            <input type="text" class="form-control" id="usuario_Nombre" name="usuario_Nombre" asp-for="usuario_Nombre"
+                required />
+            <span asp-validation-for="usuario_Nombre" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="usuario_Apellido">Apellido</label>
+            <input type="text" class="form-control" id="usuario_Apellido" name="usuario_Apellido"
+                asp-for="usuario_Apellido" required />
+            <span asp-validation-for="usuario_Apellido" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="usuario_correo">correo</label>
+            <input type="gmail" class="form-control" id="usuario_correo" name="usuario_correo" asp-for="usuario_correo"
+                required />
+            <span asp-validation-for="usuario_correo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="usuario_Contraseña">Contraseña</label>
+            <input type="password" class="form-control" id="usuario_Contraseña" name="usuario_Contraseña"
+                asp-for="usuario_Contraseña" required />
+            <span asp-validation-for="usuario_Contraseña" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+</div>
